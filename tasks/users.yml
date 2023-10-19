@@ -1,7 +1,8 @@
 --- 
 - 
   name: create ansible user
-    user: ansible
+  user:
+    name: ansible
     system: yes
 
 -
