@@ -1,14 +1,8 @@
 ---
-- name: Upgrade all Flatpaks
-  community.general.flatpak:
-    state: latest
+- name: Upgrade all flatpaks
+  ansible.builtin.command: flatpak update --noninteractive
   register: flatpak_update_output
-
-- name: Check if Flatpaks were updated
-  debug:
-    msg: "Flatpaks were{{ ' not' if not flatpak_update_output.changed else '' }} updated"
-  when: flatpak_installed.rc == 0
-
+  changed_when: "'app/' in flatpak_update_output.stdout"
 
 
 
