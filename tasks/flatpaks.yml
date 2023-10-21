@@ -1,9 +1,11 @@
- - name: Upgrade all Flatpaks
+ - 
+   name: Upgrade all Flatpaks
    community.general.flatpak:
     state: latest
    register: flatpak_update_output
 
-- name: Check if Flatpaks were updated
+- 
+  name: Check if Flatpaks were updated
   debug:
     msg: "Flatpaks were{{ ' not' if not flatpak_update_output.changed else '' }} updated"
 
