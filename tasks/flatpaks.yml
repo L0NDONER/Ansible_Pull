@@ -7,5 +7,5 @@
 - name: Check if Flatpaks were updated
   debug:
     msg: "Flatpaks were{{ ' not' if not flatpak_update_output.changed else '' }} updated"
-
+  when: flatpak_installed.rc == 0
 
